@@ -1,0 +1,33 @@
+﻿@model SurveyApp.Models.SurveyResultsViewModel
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2>View Survey Results</h2>
+            @if (ViewBag.Message != null)
+            {
+                <p class="alert alert-info">@ViewBag.Message</p>
+            }
+            else
+            {
+                <div class="card shadow">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Total number of surveys:</strong> @Model.TotalSurveys</li>
+                            <li class="list-group-item"><strong>Average Age:</strong> @Model.AverageAge</li>
+                            <li class="list-group-item"><strong>Oldest person who participated:</strong> @Model.Oldest</li>
+                            <li class="list-group-item"><strong>Youngest person who participated:</strong> @Model.Youngest</li>
+                            <li class="list-group-item"><strong>Percentage of people who like Pizza:</strong> @Model.PizzaPercentage%</li>
+                            <li class="list-group-item"><strong>Percentage of people who like Pasta:</strong> @Model.PastaPercentage%</li>
+                            <li class="list-group-item"><strong>Percentage of people who like Pap and Wors:</strong> @Model.PapAndWorsPercentage%</li>
+                            <li class="list-group-item"><strong>People who like to watch movies:</strong> @Model.AvgRatingMovies</li>
+                            <li class="list-group-item"><strong>People who like to listen to radio:</strong> @Model.AvgRatingRadio</li>
+                            <li class="list-group-item"><strong>People who like to eat out:</strong> @Model.AvgRatingEatOut</li>
+                            <li class="list-group-item"><strong>People who like to watch TV:</strong> @Model.AvgRatingTV</li>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

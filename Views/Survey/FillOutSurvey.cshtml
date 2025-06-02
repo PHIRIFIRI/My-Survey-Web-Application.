@@ -1,0 +1,124 @@
+﻿@model SurveyApp.Models.SurveyResponse
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2>Fill Out Survey</h2>
+            <form asp-action="FillOutSurvey" method="post" class="row g-3">
+                <!-- Personal Details -->
+                <div class="col-12">
+                    <h3>Personal Details</h3>
+                    <div class="mb-3">
+                        <label asp-for="FullName" class="form-label"></label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="DateOfBirth" class="form-label"></label>
+                        <input asp-for="DateOfBirth" type="date" class="form-control" />
+                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="ContactNumber" class="form-label"></label>
+                        <input asp-for="ContactNumber" class="form-control" />
+                        <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Favorite Food -->
+                <div class="col-12">
+                    <h3>What is your favorite food?</h3>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" asp-for="LikesPizza" class="form-check-input" />
+                        <label class="form-check-label">Pizza</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" asp-for="LikesPasta" class="form-check-input" />
+                        <label class="form-check-label">Pasta</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" asp-for="LikesPapAndWors" class="form-check-input" />
+                        <label class="form-check-label">Pap and Wors</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" asp-for="LikesOther" class="form-check-input" />
+                        <label class="form-check-label">Other</label>
+                    </div>
+                </div>
+
+                <!-- Ratings Table -->
+                <div class="col-12">
+                    <h3>Please rate your level of agreement (1 = Strongly Agree, 5 = Strongly Disagree)</h3>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>I like to watch movies</td>
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <td>
+                                        <input type="radio" asp-for="RatingMovies" value="@i" class="form-check-input" />
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>I like to listen to radio</td>
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <td>
+                                        <input type="radio" asp-for="RatingRadio" value="@i" class="form-check-input" />
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>I like to eat out</td>
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <td>
+                                        <input type="radio" asp-for="RatingEatOut" value="@i" class="form-check-input" />
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>I like to watch TV</td>
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <td>
+                                        <input type="radio" asp-for="RatingTV" value="@i" class="form-check-input" />
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                    <span asp-validation-for="RatingMovies" class="text-danger"></span>
+                    <span asp-validation-for="RatingRadio" class="text-danger"></span>
+                    <span asp-validation-for="RatingEatOut" class="text-danger"></span>
+                    <span asp-validation-for="RatingTV" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="col-12 mt-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
