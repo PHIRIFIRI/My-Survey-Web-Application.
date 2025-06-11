@@ -19,5 +19,7 @@ The goal of this assignment is to have you work on a small project using the
  programming language of your choice, covering the following aspects:
  
  User Interface: Fill in a form interface where users can input data.
+ 
  Data Storage: Save the entered data into MySQL database.
+ 
  Data Analysis: Utilise the database to compute or retrieve stored data from the form.
